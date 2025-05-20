@@ -5,3 +5,20 @@ output "random_pet_name" {
                         # A type specification is either a primitive type keyword (bool, number, string) 
                        # or a complex type constructor call, like list(string).
 }
+
+
+output "complex_map" {
+  description = "Complex type"
+  value = local.complex_map
+  type = object({
+  address = object({
+    city = string
+    state = string
+    street = string
+  })
+  age = number
+  hobbies = tuple([string, string, string])
+  is_student = bool
+  name = string
+})
+}
